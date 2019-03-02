@@ -1,0 +1,55 @@
+{
+  "name": "storeapi_swagger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.15.0",
+    "eslint-config-google": "^0.12.0",
+    "nodemon": "^1.18.10"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
+    "rules": {
+      "linebreak-style": [
+        "error",
+        "windows"
+      ]
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "mocha": true,
+      "node": true
+    }
+  },
+  "dependencies": {
+    "@ubpphdev/chicharon": "git+ssh://git@bcoe-gitlab.southeastasia.cloudapp.azure.com:modules/chicharon.git#1.0.0",
+    "app-module-path": "^2.2.0",
+    "app-root-path": "^2.1.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "install": "^0.12.2",
+    "js-yaml": "^3.12.2",
+    "json-refs": "^3.0.12",
+    "lodash": "^4.17.11",
+    "npm": "^6.8.0",
+    "swagger-stats": "^0.95.7",
+    "swagger-tools": "^0.10.4"
+  }
+}

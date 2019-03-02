@@ -1,0 +1,6 @@
+/supplies:
+  $ref: ./supplies/supplies.yaml
+/supplies/{id}:
+  $ref: ./supplies/supplies.[id].yaml
+/ratings:
+  $ref: ./ratings/ratings.yaml

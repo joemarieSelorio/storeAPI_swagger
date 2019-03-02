@@ -1,0 +1,35 @@
+get:
+  summary: Get supplies list
+  description: Get All
+  x-swagger-router-controller: Controllers
+  operationId: getAllSupplies
+  consumes:
+    - application/json
+    - application/xml
+  produces:
+    - application/xml
+    - application/json
+  responses:
+    200:
+      description: Successfuly retrieved supplies list
+      schema:
+        $ref: '#/definitions/Supplies'
+post:
+  summary: Get supplies list
+  x-swagger-router-controller: Controllers
+  operationId: addNewSupply
+  consumes:
+    - application/json
+    - application/xml
+  produces:
+    - application/xml
+    - application/json
+  parameters:
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/Supplies'
+  responses:
+    200:
+      description: Successfuly retrieved supplies list

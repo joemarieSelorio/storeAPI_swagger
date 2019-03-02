@@ -1,0 +1,39 @@
+get:
+  summary: asd
+  description: SupplyById
+  x-swagger-router-controller: Controllers
+  operationId: getSupplyById
+  consumes:
+    - application/json
+    - application/xml
+  produces:
+    - application/xml 
+    - application/json
+  parameters:
+    - name: id
+      type: string
+      required: true
+      in: path
+  responses:
+    200:
+      description: Successfuly retrieved supply
+      schema:
+        $ref: '#/definitions/Supplies'
+delete:
+  summary: delete a supplies
+  x-swagger-router-controller: Controllers
+  operationId: deleteSupplyById
+  consumes:
+    - application/json
+    - application/xml
+  produces:
+    - application/xml
+    - application/json
+  parameters:
+    - name: id
+      type: string
+      required: true
+      in: path
+  responses:
+    200:
+      description: Successfuly deletes the supply

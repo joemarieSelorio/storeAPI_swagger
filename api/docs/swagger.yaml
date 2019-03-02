@@ -1,0 +1,17 @@
+swagger: '2.0'
+info:
+  description: Store-API 
+  version: 0.0.1
+  title: Store-API
+host: localhost:8080
+basePath: /api
+tags:
+  - name: supplies
+    description: Supplies!!
+schemes:
+  - https
+  - http
+paths:
+  $ref: ./api/docs/paths/index.yaml
+definitions:
+  $ref: ./api/docs/definitions/index.yaml

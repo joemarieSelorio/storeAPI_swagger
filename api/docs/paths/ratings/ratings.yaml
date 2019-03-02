@@ -1,0 +1,19 @@
+post:
+  summary: Add new rating to a supply
+  x-swagger-router-controller: Controllers
+  operationId: addNewRating
+  consumes:
+    - application/json
+    - application/xml
+  produces:
+    - application/xml
+    - application/json
+  parameters:
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/Ratings'
+  responses:
+    200:
+      description: Successfuly added new rating

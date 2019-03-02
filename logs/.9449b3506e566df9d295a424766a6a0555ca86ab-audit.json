@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 15
+    },
+    "auditLog": "/mnt/c/apps/StoreAPI_Swagger/logs/.9449b3506e566df9d295a424766a6a0555ca86ab-audit.json",
+    "files": [
+        {
+            "date": 1551519326345,
+            "name": "/mnt/c/apps/StoreAPI_Swagger/logs/event-2019-03-02.log",
+            "hash": "43243d1a0dda2eafc6dbcf1d7250bbd1"
+        }
+    ]
+}

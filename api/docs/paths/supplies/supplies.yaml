@@ -2,7 +2,7 @@ get:
   summary: Get supplies list
   description: Get All
   x-swagger-router-controller: Controllers
-  operationId: getAllSupplies
+  operationId: getSupplyList
   consumes:
     - application/json
     - application/xml

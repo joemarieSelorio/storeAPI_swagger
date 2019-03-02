@@ -1,6 +1,6 @@
 require('app-module-path').addPath(require('app-root-path').toString());
 
-const HttpError = require('api/responses/HttpError');
+const HttpError = require('src/responses/HttpError');
 
 /**
  * Class to provide uniform instance/formatting for not found error responses

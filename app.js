@@ -10,6 +10,10 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+// Mysql
+const {createConnection} = require('mysql');
+const {HOST, USERNAME, PASSWORD, DATABASE} = process.env;
+
 // Swagger
 const swaggerTools = require('swagger-tools');
 const jsyaml = require('js-yaml');
@@ -18,6 +22,21 @@ const swStats = require('swagger-stats');
 const ValidationError = require('src/responses/SwaggerValidationError');
 
 const app = express();
+
+const connection = createConnection({
+  host: HOST,
+  user: USERNAME,
+  password: PASSWORD,
+  database: DATABASE,
+});
+
+connection.connect((err)=>{
+  if (err) {
+    logger.error(err.message);
+    return;
+  }
+  logger.info('mysql intiatated');
+});
 
 const apiRoot = jsyaml.safeLoad(fs.readFileSync(path.join(__dirname,
     './api/docs/swagger.yaml')).toString());
@@ -89,6 +108,12 @@ swaggerResolve(apiRoot, swaggerOptions)
                 return res.status(error.status).json(error);
               }
             });
+            /**
+           * Uniform JSON response object sendin
+           * @param {objec} req - Request object
+           * @param {oject} res - Response object
+           * @return {function} - Function call to send response to user
+           */
 
             // Serve Swagger document with UI
             app.use(middleware.swaggerUi());

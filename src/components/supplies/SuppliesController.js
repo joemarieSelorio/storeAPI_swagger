@@ -106,9 +106,9 @@ async function deleteSupplyById(req, res, next) {
 async function addNewRating(req, res, next) {
   const {user, rating, supplyId} = req.body;
   try {
-    const newRating = createNewRating(user, rating, supplyId);
+    const newRating = await createNewRating(user, rating, supplyId);
     respond(res, new HttpSuccess(200, 'Success', {datails: pick(newRating,
-        ['id', 'name', 'description', 'imageUrl', 'quantity'])}));
+        ['id', 'user', 'rating', 'supplyId'])}));
     return next();
   } catch (error) {
     return next(new HttpError(500, 9999, error.message));

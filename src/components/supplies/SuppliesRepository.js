@@ -90,7 +90,7 @@ const createNewRating = async (user, rating, supplyId) => {
     supplyId,
   };
   try {
-    return await service.insertIntoTable(process.env.SUPPLIES_TABLE, data);
+    return await service.insertIntoTable(process.env.RATINGS_TABLE, data);
   } catch (error) {
     throw new Error(error.message);
   }

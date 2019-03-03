@@ -9,6 +9,11 @@
             "date": 1551519326345,
             "name": "/mnt/c/apps/StoreAPI_Swagger/logs/event-2019-03-02.log",
             "hash": "43243d1a0dda2eafc6dbcf1d7250bbd1"
+        },
+        {
+            "date": 1551564911395,
+            "name": "/mnt/c/apps/StoreAPI_Swagger/logs/event-2019-03-03.log",
+            "hash": "bef88c1f5edcdf331e489da89c05ca8d"
         }
     ]
 }

@@ -8,7 +8,10 @@
     "start": "node app.js",
     "start:dev": "nodemon app.js",
     "knex:latest": "knex migrate:latest",
-    "seed": "knex seed:run"
+    "db:latest": "knex migrate:latest",
+    "db:seed": "knex seed:run",
+    "db:rollback": "knex migrate:rollback",
+    "db:reset": "npm run db:rollback && npm run db:latest && npm run db:seed && npm run start:dev"
   },
   "author": "",
   "license": "ISC",

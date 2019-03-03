@@ -22,11 +22,11 @@ class MysqlService {
   }
   /**
    * @param {string} table - mysql table
-   * @param {object} prop  - id of the object
+   * @param {object} id  - id of the object
    * @param {Array} fields - object details
    */
-  async getTableRow(table, prop, fields) {
-    return await knex.where(prop).select(...fields).first()
+  async getTableRow(table, id, fields) {
+    return await knex.where(id).select(...fields).first()
         .from(table);
   }
   /**

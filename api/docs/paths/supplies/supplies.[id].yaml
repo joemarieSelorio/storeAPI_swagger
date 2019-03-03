@@ -11,9 +11,10 @@ get:
     - application/json
   parameters:
     - name: id
-      type: string
-      required: true
       in: path
+      description: id of the object
+      type: string
+      required: true  
   responses:
     200:
       description: Successfuly retrieved supply
@@ -31,9 +32,12 @@ delete:
     - application/json
   parameters:
     - name: id
-      type: string
-      required: true
       in: path
+      description: id of the object
+      type: string
+      required: true 
   responses:
     200:
-      description: Successfuly deletes the supply
+      description: Successfuly retrieved supply
+      schema:
+        $ref: '#/definitions/Supplies'

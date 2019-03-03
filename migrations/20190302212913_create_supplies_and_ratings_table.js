@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
         t.increments('id').primary();
         t.string('user').notNullable();
         t.integer('rating').notNullable();
-        t.integer('suppliesId').unsigned()
+        t.integer('supplyId').unsigned()
             .references('supplies.id');
       });
 };

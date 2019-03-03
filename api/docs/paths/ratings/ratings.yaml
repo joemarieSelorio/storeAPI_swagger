@@ -7,7 +7,7 @@ post:
     - application/xml
   produces:
     - application/xml
-    - application/json
+    - application/jsonp
   parameters:
     - name: body
       in: body

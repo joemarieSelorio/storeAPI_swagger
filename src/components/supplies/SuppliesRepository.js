@@ -64,10 +64,56 @@ const deleteSupply = async (id) => {
   }
 };
 
+/**
+ * @param {*} supplyId - id of the supply
+ */
+const getRating = async (supplyId) => {
+  const fields = ['id', 'user', 'rating', 'supplyId'];
+  try {
+    return await service
+        .getContents(supplyId, process.env.RATINGS_TABLE, fields);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+/**
+ * @todo create new supply
+ * @param {string} user - user who rates the supply
+ * @param {string} rating - ratings of the user
+ * @param {string} supplyId - id of the supply
+ */
+const createNewRating = async (user, rating, supplyId) => {
+  const data = {
+    user,
+    rating,
+    supplyId,
+  };
+  try {
+    return await service.insertIntoTable(process.env.SUPPLIES_TABLE, data);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+/**
+ * @param {*} supplyId - id of the supply
+ */
+const deleteRating= async (supplyId) => {
+  try {
+    return await service.deleteRow(process.env.RATINGS_TABLE, supplyId);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 module.exports = {
   createNewSupply,
   supplyList,
   getsupply,
   deleteSupply,
+  getRating,
+  createNewRating,
+  deleteRating,
 };
 

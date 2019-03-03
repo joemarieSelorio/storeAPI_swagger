@@ -1,8 +1,8 @@
 require('app-module-path').addPath(require('app-root-path').toString());
 const {map, pick} = require('lodash');
-const {createNewSupply, supplyList, getsupply, deleteSupply}
+const {createNewSupply, supplyList, getsupply, getRating,
+  deleteSupply, createNewRating, deleteRating}
   = require('src/components/supplies/SuppliesRepository');
-const {deleteRating} = require('src/components/ratings/RatingsRepository');
 const HttpError = require('src/responses/HttpError');
 const HttpNotFoundError = require('src/responses/NotFoundError');
 const {HttpSuccess, respond} = require('src/utilities/WriterUtil');
@@ -98,10 +98,56 @@ async function deleteSupplyById(req, res, next) {
   }
 }
 
+/**
+ * @param {*} req - request to the server
+ * @param {*} res - response of the server
+ * @param {*} next - next function to be called
+ */
+async function addNewRating(req, res, next) {
+  const {user, rating, supplyId} = req.body;
+  try {
+    const newRating = createNewRating(user, rating, supplyId);
+    respond(res, new HttpSuccess(200, 'Success', {datails: pick(newRating,
+        ['id', 'name', 'description', 'imageUrl', 'quantity'])}));
+    return next();
+  } catch (error) {
+    return next(new HttpError(500, 9999, error.message));
+  }
+}
+
+/**
+ * @todo - retrieve specific ratings in the database via supplyId
+ * @param {*} req - request to the server
+ * @param {*} res - response from the server
+ * @param {*} next  - next function to be called
+ */
+async function getRatingById(req, res, next) {
+  const {supplyId} = req.swagger.params;
+  try {
+    const ratings = await getRating({supplyId: supplyId.value});
+    const ratingSummary = map(ratings, (row)=>{
+      return {
+        id: row.id,
+        details: {
+          user: row.user,
+          rating: row.rating,
+          supplyId: row.supplyId,
+        },
+      };
+    });
+    respond(res, new HttpSuccess(200, 'Success', ratingSummary));
+    return next();
+  } catch (error) {
+    return next(new HttpError(500, 9999, error.message));
+  }
+}
+
 module.exports = {
   getSupplyList,
   getSupplyById,
   addNewSupply,
   deleteSupplyById,
+  addNewRating,
+  getRatingById,
 };
 

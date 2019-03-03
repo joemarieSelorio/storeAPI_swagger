@@ -2,5 +2,5 @@
   $ref: ./supplies/supplies.yaml
 /supplies/{id}:
   $ref: ./supplies/supplies.[id].yaml
-/ratings:
-  $ref: ./ratings/ratings.yaml
+/supplies/rating/{supplyId}:
+  $ref: ./supplies/supplies.rating.[supplyId].yaml

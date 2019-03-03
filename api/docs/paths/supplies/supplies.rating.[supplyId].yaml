@@ -1,0 +1,46 @@
+get:
+  summary: asd
+  description: SupplyById
+  x-swagger-router-controller: Controllers
+  operationId: getRatingById
+  consumes:
+    - application/json
+    - application/xml
+  produces:
+    - application/xml 
+    - application/json
+  parameters:
+    - name: supplyId
+      in: path
+      description: id of the object
+      type: string
+      required: true  
+  responses:
+    200:
+      description: Successfuly retrieved supply
+      schema:
+        $ref: '#/definitions/Ratings'
+post:
+  summary: Get supplies list
+  x-swagger-router-controller: Controllers
+  operationId: addNewRating
+  consumes:
+    - application/json
+    - application/xml
+  produces:
+    - application/xml
+    - application/json
+  parameters:
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/Ratings'
+    - name: supplyId
+      in: path
+      description: id of the object
+      type: string
+      required: true
+  responses:
+    200:
+      description: Successfuly added new Rating

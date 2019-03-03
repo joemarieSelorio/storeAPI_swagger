@@ -18,7 +18,15 @@ class MysqlService {
    * @param {fields} fields - object details
    */
   async getTableContents(table, fields) {
-    return await knex.select(...fields,).from(table);
+    return await knex.select(...fields).from(table);
+  }
+  /**
+    * @param {string} prop - property of the table
+    * @param {string} table - mysql table
+    * @param {fields} fields - object details
+   */
+  async getContents(prop, table, fields) {
+    return await knex.where(prop).select(...fields).from(table);
   }
   /**
    * @param {string} table - mysql table
